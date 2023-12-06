@@ -4,7 +4,7 @@ const Home: React.FC = () => {
   return (
     <div className="center-container">
       <div>
-        <h1>Welcome to Electron!</h1>
+        <h2>Welcome to Electron!</h2>
         <ColorPicker />
       </div>
     </div>

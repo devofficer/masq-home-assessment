@@ -13,7 +13,7 @@ ul {
 }
 
 body {
-  font-family: 'Arial, sans-serif';
+  font-family: system-ui;
   transition: background-color 2s ease-in-out;
   font-size: $base-font-size;
   color: $base-text-color;
@@ -42,19 +42,22 @@ a {
   font-size: $base-font-size;
   color: $primary-text-color;
   text-transform: uppercase;
-  font-weight: bold;
   transition: color 0.3s ease-in-out;
+  &:focus-visible {
+    outline: none;
+  }
+
+  &:hover {
+    color: white;
+  }
 }
 
-a:hover {
-  color: white;
-}
 .center-container {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 53px);
 }
 
 .weather-container {
