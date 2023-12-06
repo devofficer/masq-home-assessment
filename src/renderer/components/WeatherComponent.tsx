@@ -1,15 +1,25 @@
 import React, { useState, ChangeEvent } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setWeatherData, setCity, setLoading } from '../redux/slices/weatherSlice';
+import { RootState } from '../redux/store';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function WeatherComponent() {
-  const [city, setCity] = useState('');
-  const [weatherData, setWeatherData] = useState<any>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
 
+  const dispatch = useDispatch();
+  const { city, weatherData, loading, error } = useSelector((state: RootState) => state.weather);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setCity(e.target.value));
+  };
+
+  // const handleSearch = () => {
+  //   dispatch(fetchData());
+  // };
   const fetchData = async () => {
-    setLoading(true);
+    
+    dispatch(setLoading(true));
 
     try {
       const response = await fetch(
@@ -19,18 +29,18 @@ function WeatherComponent() {
       if (data.cod !== 200) {
         toast.error(`Sorry, ${data.message}, Please check the city name and try again`);
       }else{
-        setWeatherData(data);
+        dispatch(setWeatherData(data));
       }
       
     } catch (e:any) {
         toast.error(`Sorry, ${e.message}`);
     } finally {
-      setLoading(false);
+      dispatch(setLoading(false));
     }
   };
 
   const handleCityChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setCity(e.target.value);
+    dispatch(setCity(e.target.value));
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
