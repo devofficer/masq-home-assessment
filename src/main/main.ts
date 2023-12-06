@@ -30,7 +30,13 @@ ipcMain.on('ipc-example', async (event, arg) => {
   console.log(msgTemplate(arg));
   event.reply('ipc-example', msgTemplate('pong'));
 });
-
+ipcMain.on('update-background-color', (event, color) => {
+  if (/^#[0-9A-F]{6}$/i.test(color)) {
+    mainWindow?.setBackgroundColor(color);
+  } else {
+    event.sender.send('color-validation-error', 'Invalid color format');
+  }
+});
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
   sourceMapSupport.install();
