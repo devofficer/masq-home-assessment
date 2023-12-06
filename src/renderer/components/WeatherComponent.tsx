@@ -55,12 +55,13 @@ function WeatherComponent() {
       <h2>Today's Weather</h2>
       <div>
         <input
-          placeholder="Type a City"
+          placeholder="Enter a City name"
           type="text"
           id="cityInput"
           value={city}
           onChange={handleCityChange}
           onKeyDown={handleKeyDown}
+          autoFocus= {true}
         />
 
         <button type="button" onClick={fetchData} disabled={!city || loading}>
