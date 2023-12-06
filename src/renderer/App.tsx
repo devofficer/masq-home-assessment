@@ -4,6 +4,7 @@ import './styles/main.scss';
 import WeatherComponent from './components/WeatherComponent';
 import NavigationBar from './components/NavigationBar';
 import Home from './components/Home';
+import { ToastContainer } from 'react-toastify';
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/weather" element={<WeatherComponent />} />
       </Routes>
+      <ToastContainer />
     </Router>
   );
 }

@@ -4,19 +4,21 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Arial, sans-serif';
-  transition: background-color 2s ease-in-out;
-  font-size: $base-font-size;
-  color: $base-text-color;
-}
-
 body,
 p,
 div,
 nav,
 ul {
   margin: 0;
+}
+
+body {
+  font-family: 'Arial, sans-serif';
+  transition: background-color 2s ease-in-out;
+  font-size: $base-font-size;
+  color: $base-text-color;
+  max-width: 800px;
+  margin: auto;
 }
 
 p {
