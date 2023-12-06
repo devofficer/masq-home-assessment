@@ -1,0 +1,34 @@
+
+@import '_variables';
+button {
+  background-color: $primary-button-color;
+  height: 3em;
+  border: none;
+  color: white;
+  width: 100px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  &:not(:disabled):hover {
+    background-color: darken($primary-button-color, 10%);
+  }
+  &:disabled {
+    color: rgb(214, 212, 212); 
+    cursor: default;
+  }
+}
+
+
+input {
+  height: 3em;
+  padding-left: 10px;
+  border: none;
+  &:focus-visible{
+    border: none; 
+    outline: none; 
+  } 
+}
+.color-picker {
+  box-shadow: rgb(0 0 0 / 15%) 0px 0px 0px 1px, rgb(0 0 0 / 15%) 0px 8px 16px;
+  margin: auto;
+  margin-bottom: 3em;
+}
